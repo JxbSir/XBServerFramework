@@ -23,19 +23,27 @@
     
     NSLog(@"%@",NSHomeDirectory());
     
-    UIButton    *btnfw1 = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 200, 44)];
+    UILabel* lblTip = [[UILabel alloc] initWithFrame:CGRectMake(0, 60, [UIScreen mainScreen].bounds.size.width, 100)];
+    lblTip.text = @"当framework加载过后，必须重启app，所以：启动-更新-加载";
+    lblTip.numberOfLines = 0;
+    lblTip.textAlignment = NSTextAlignmentCenter;
+    lblTip.lineBreakMode = NSLineBreakByCharWrapping;
+    [self.view addSubview:lblTip];
+    
+    
+    UIButton    *btnfw1 = [[UIButton alloc] initWithFrame:CGRectMake(100, 200, 200, 44)];
     [btnfw1 setTitle:@"下载framework1" forState:UIControlStateNormal];
     [btnfw1 addTarget:self action:@selector(downloadFramework1) forControlEvents:UIControlEventTouchUpInside];
     btnfw1.backgroundColor = [UIColor redColor];
     [self.view addSubview:btnfw1];
     
-    UIButton    *btnfw2 = [[UIButton alloc] initWithFrame:CGRectMake(100, 200, 200, 44)];
+    UIButton    *btnfw2 = [[UIButton alloc] initWithFrame:CGRectMake(100, 300, 200, 44)];
     [btnfw2 setTitle:@"下载framework2" forState:UIControlStateNormal];
     [btnfw2 addTarget:self action:@selector(downloadFramework2) forControlEvents:UIControlEventTouchUpInside];
     btnfw2.backgroundColor = [UIColor redColor];
     [self.view addSubview:btnfw2];
     
-    UIButton    *btnTest1 = [[UIButton alloc] initWithFrame:CGRectMake(100, 300, 200, 44)];
+    UIButton    *btnTest1 = [[UIButton alloc] initWithFrame:CGRectMake(100, 400, 200, 44)];
     [btnTest1 setTitle:@"验证framework结果" forState:UIControlStateNormal];
     btnTest1.backgroundColor = [UIColor redColor];
     [btnTest1 addTarget:self action:@selector(testFramework) forControlEvents:UIControlEventTouchUpInside];
